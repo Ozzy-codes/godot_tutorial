@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ok7xv2xv4a8a"]
 
-[ext_resource type="Script" uid="uid://5fco1t8073gu" path="res://scripts/hud.gd" id="1_64ctp"]
+[ext_resource type="Script" uid="uid://5fco1t8073gu" path="res://scripts/hud.gd" id="1_oo0fn"]
 [ext_resource type="FontFile" uid="uid://c38qvxfvto8fk" path="res://fonts/Xolonium-Regular.ttf" id="2_8sq4i"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_nxtc6"]
@@ -10,7 +10,7 @@ action = &"start_game"
 events = [SubResource("InputEventAction_nxtc6")]
 
 [node name="HUD" type="CanvasLayer" unique_id=1181219223]
-script = ExtResource("1_64ctp")
+script = ExtResource("1_oo0fn")
 
 [node name="ScoreLabel" type="Label" parent="." unique_id=347081644]
 anchors_preset = 5
@@ -28,6 +28,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Message" type="Label" parent="." unique_id=644530442]
+custom_minimum_size = Vector2(100, 100)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
