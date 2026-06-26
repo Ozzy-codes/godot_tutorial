@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://cumdfs8m4kp25"]
+
+[ext_resource type="Script" uid="uid://bn7aq58svw4a3" path="res://scripts/mob.gd" id="1_ebxvl"]
+[ext_resource type="Texture2D" uid="uid://cf0gn2yys0iqu" path="res://art/enemyFlyingAlt_1.png" id="1_h8ps3"]
+[ext_resource type="Texture2D" uid="uid://dvojumtw3inpd" path="res://art/enemyFlyingAlt_2.png" id="2_ebxvl"]
+[ext_resource type="Texture2D" uid="uid://dgoxv6vwxxlij" path="res://art/enemySwimming_1.png" id="3_wpivu"]
+[ext_resource type="Texture2D" uid="uid://1b6vfwpvn41y" path="res://art/enemySwimming_2.png" id="4_nao87"]
+[ext_resource type="Texture2D" uid="uid://bp6w70quuqqkb" path="res://art/enemyWalking_1.png" id="5_i71wu"]
+[ext_resource type="Texture2D" uid="uid://dyu6bfl0vu20i" path="res://art/enemyWalking_2.png" id="6_m0xve"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cau1m"]
+radius = 37.0
+height = 98.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p0eki"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_h8ps3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ebxvl")
+}],
+"loop": 1,
+"name": &"fly",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wpivu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nao87")
+}],
+"loop": 1,
+"name": &"swim",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_i71wu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_m0xve")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[node name="Mob" type="RigidBody2D" unique_id=1963366499 groups=["mobs"]]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_ebxvl")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1414494632]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_cau1m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1614456131]
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_p0eki")
+animation = &"walk"
+frame_progress = 0.4516496
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1617848845]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
